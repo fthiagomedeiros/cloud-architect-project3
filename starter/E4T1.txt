@@ -2,4 +2,32 @@
 
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
 
+1. Remove the inbound rule related to SSH connection.
+22	tcp	0.0.0.0/0	✔  
+
+2. Change for known specific IP that can access to the instance.
+22	tcp	87.9.181.77/32	✔
+This change makes ssh connection to the instance allowed just for 187.9.181.77/32, which is a known IP. It means the instance is just accessible from this IP.
+
+3. Change the instance to a private subnet and allows only internal traffic. If SSH access is necessary, define a bastion with restrictive access to the internet or use SSM Session Manager
+
+
+______________________________________________________________________________________
+
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+AWS Best Practices specify you must define least privilege access.
+The instance has the policy below, which is permissive and give access to any s3 bucket.
+
+      Policies:
+        - PolicyName: InstanceRolePolicy-C3
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: 's3:*'
+                Resource: '*'
+                
+Encrypt the bucket using a KMS Key. Encryption is an effective way to protect data in a S3 bucket.
+https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-object-encryption.html
+

@@ -10,10 +10,10 @@ ________________________________________________________________________________
 
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
 
-GuardDuty analyzes billions of events in pursuit of trends, patterns, and anomalies that are recognizable signs that something is amiss. GuardDuty analyses and processes data from VPC Flow Logs, AWS CloudTrail Event Logs, and DNS logs.
+GuardDuty analyzes billions of events in pursuit of trends, patterns, and anomalies that are recognizable signs that something is amiss. GuardDuty analyses and processes data from VPC Flow Logs, AWS CloudTrail Event Logs, and DNS logs. In this context, GuardDury analysed VPC Flow Logs. VPC Flow Logs capture information about the IP traffic going to and from Amazon EC2 network interfaces in your VPC.
 
 _____________________________________________________________________________________________________
 
-
+Source: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html
 
   

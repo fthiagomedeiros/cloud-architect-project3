@@ -1,3 +1,28 @@
 Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
 
 Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+AWS Config provided some insights:
+1. EC2 instances should be managed by AWS Systems Manager. 
+2. Checks whether the EBS volumes that are in an attached state are encrypted.
+3. Checks whether HTTP to HTTPS redirection is configured on all HTTP listeners of Application Load Balancers. The rule is NON_COMPLIANT if one or more HTTP listeners of Application Load Balancers do not have HTTP to HTTPS redirection configured. 
+4. Checks that your Amazon S3 bucket either has Amazon S3 default encryption enabled or that the S3 bucket policy explicitly denies put-object requests without server side encryption. 
+5. Checks whether logging is enabled for your S3 buckets. 
+6. Checks whether the incoming SSH traffic for the security groups is accessible. The rule is compliant when the IP addresses of the incoming SSH traffic in the security groups are restricted. This rule applies only to IPv4. 
+7. Checks whether the incoming RDP traffic is Allowed from 0.0.0.0/0. This rule is compliant when incoming RDP traffic is restricted. 
+
+
+AWS Inspector provided some insights:
+TCP port 23 which is associated with 'Telnet' is reachable from the internet
+UDP port 21 which is associated with 'FTP' is reachable from the internet
+UDP port 20 which is associated with 'FTP' is reachable from the internet
+TCP port 20 which is associated with 'FTP' is reachable from the internet
+TCP port 21 which is associated with 'FTP' is reachable from the internet
+UDP port 23 which is associated with 'Telnet' is reachable from the internet
+TCP port 68 which is associated with 'DHCP' is reachable from the internet
+
+As provided by AWS Inspector, we must restrict the inbound rules for the Security Group (WebAppSG) associated with "Web Service Instance - C3". Apparently the instance must be reachable only from the Load Balancer, so, we can define a rule to allow just the load balancer reach this instance. If any additional port is necessary to reach the instance from the internet, I would have defined a restrict IP address that can access the instance or allow this instance only be accessible using SSM Session Manager.
+
+Another improvement that could be made is encrypt the volume associated with the instances (if necessary)
+
+Another suggestion would be moving the instance to a private subnet in order to avoid the instance be accessible from the internet.

@@ -1,7 +1,7 @@
 
 #poor security practices 1
 
-"The Security Group for the instance "Web Service Instance - C3" accepts traffic from everywhere. It has several inbound rules with source 0.0.0.0/0. It has also a inbound rule that must be definitely avoided, that allows traffic from everywhere. Look below
+The Security Group for the instance "Web Service Instance - C3" accepts traffic from everywhere. It has several inbound rules with source 0.0.0.0/0. It has also a inbound rule that must be definitely avoided, that allows traffic from everywhere. Look below
 ----------------------------------------------
 All traffic	All	All	0.0.0.0/0. 
 ----------------------------------------------

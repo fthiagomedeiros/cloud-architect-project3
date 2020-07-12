@@ -2,12 +2,30 @@
 
 ## Scan infrastructure as code templates
 
+As I used in the template DevSecOpsPipeline.png, Prisma Cloud is a tool for scanning terraform or cloudformation templates (https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/prisma-cloud-devops-security/secure-your-infrastructure-automation.html)
+
 ### Example vulnerability
+
+The vulnerabilities that tools scanning IaC templates are related to permissive policies, IAM Policies in template etc.
+
+__________________________________________________________________
+
 
 ##Scan AMI’s or containers for OS vulnerabilities
 
+Anchore scanning for Dockerfile image scan or AWS Inspector for AMI scanning.
+Another third party tools are Tenable Nessus, Rapid7 Nexpose, Qualys Cloud Platform
+
 ### Example vulnerability
+
+These tools must be able to detect vulnerabilities in SO level or remote root login being enabled or or vulnerable software versions installed
+
+__________________________________________________________________
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
 
+Amazon Inspector enables you to analyze the behavior of your AWS resources and helps you identify potential security issues.
+
 ### Example vulnerability
+
+Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices. After performing an assessment, Amazon Inspector produces a detailed list of security findings prioritized by level of severity.

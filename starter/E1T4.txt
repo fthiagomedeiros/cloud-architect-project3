@@ -1,0 +1,16 @@
+
+#poor security practices 1
+
+"The Security Group for the instance "Web Service Instance - C3" accepts traffic from everywhere. It has several inbound rules with source 0.0.0.0/0. It has also a inbound rule that must be definitely avoided, that allows traffic from everywhere. Look below
+----------------------------------------------
+All traffic	All	All	0.0.0.0/0. 
+----------------------------------------------
+In order to have a better approach, we could restrict the access to this instance.
+
+_______________________________________________________________________________________________
+
+#poor security practices 2
+
+The instance "Web Service Instance - C3" has been provisioned in a public subnet. It has a public-ip and is accessible from internet.
+It could de provisioned in a private subnet and accessible using Session Manager or a bastion instance
+

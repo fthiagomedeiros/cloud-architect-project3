@@ -1,8 +1,26 @@
-
 # What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+
+We could set up a WAF that helps protect your web applications or APIs against common web exploits that may affect availability, compromise security, or consume excessive resources. AWS WAF gives you control over how traffic reaches your applications by enabling you to create security rules that block common attack patterns, such as SQL injection or cross-site scripting, and rules that filter out specific traffic patterns you define. 
+
+We could provision out instance in a private subnet in order to reduce attack surface of the web application.
+
+___________________________________________________________________________________________________________________________________________________________________
+
 
 # Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
 
+VPC Endpoint does not affect the IAM permissions.
+VPC Endpoint allows to run applications within an Amazon VPC. 
+
+___________________________________________________________________________________________________________________________________________________________________
+
 # Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
 
+No. This change will only affect new files uploaded.
+
+___________________________________________________________________________________________________________________________________________________________________
+
+
 # What would happen if the original cloud formation templates are applied to this environment.
+
+???? Test

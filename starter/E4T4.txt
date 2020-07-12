@@ -23,4 +23,4 @@ ________________________________________________________________________________
 
 # What would happen if the original cloud formation templates are applied to this environment.
 
-???? Test
+Nothing. I run the cloudformation template and nothing changed. All changes in Security Group kept as changed manually.
